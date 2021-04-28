@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string.h>
+#include <unordered_map>
+#include <string>
 
 // 测试验证构造函数调用
 class CMyStringC11 {
@@ -130,6 +132,19 @@ CMyStringC11 funcReturnValue1()
 //     return a;
 // }
 
+
+void test_unordered_map()
+{
+    std::unordered_map<int, std::string> test;
+    test.emplace(1, "3");
+    test.emplace(1, "4");
+    test.emplace(1, "5");
+    for (auto& it : test)
+    {
+        std::cout << "first:" << it.first << " second:" << it.second << std::endl;
+    }
+}
+
 int main()
 {   
     CMyStringC11 a;
@@ -151,6 +166,8 @@ int main()
     std::cout << "func return value test end" << std::endl;
     CMyStringC11 g = funcReturnValue1();
     std::cout << "func return value test end" << std::endl;
+
+    test_unordered_map();
 
     return 0;
 }
